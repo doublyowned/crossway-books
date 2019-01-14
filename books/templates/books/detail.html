@@ -1,18 +1,25 @@
 {% extends 'books/base.html' %}
 
 {% block content %}
-<div class='book-full-detail'>
+<div class='full-detail'>
     <div class='cover-container'>
         <img class='detail cover' src={{book.pic_url}}>
     </div>
     <div class='text-info'>
-        <h2>{{book.title}}</h2>
+        <h2>{{ book.title }}</h2>
         <p>by
             <a href="{% url 'books:author_detail' book.author.id %}">{{book.author.name}}</a>
         </p>
-        <p>{{book.blurb}}</p>
+        <p>{{ book.blurb|safe }}</p>
+        <hr>
+        <a class='author-link' href="{% url 'books:author_detail' book.author.id %}">
+            <h3>Author:</h3>
+            <img class='author' src='{{ book.author.pic_url }}'>
+            <p>{{ book.author.blurb|safe }}</p>
+        </a>
+
     </div>
+    <div><p>purchase info would go here </p></div>
+
 </div>
 {% endblock content %}
-
-{{ book }}

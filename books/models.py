@@ -63,4 +63,4 @@ class Book(models.Model):
 class BookFilter(django_filters.FilterSet):
     class Meta:
         model = Book
-        fields = ['category', 'medium', 'author']
+        fields = ['category', 'author']

@@ -7,13 +7,13 @@
 </form>
 <div class='books-container'>
     {% for book in filter.qs %}
-		<div class='book-info'>
-			<a class='cover-container' href="{% url 'books:detail' book.id %}">
-				<img class='cover' src={{book.pic_url}}>
-			</a>
-			<a class='title'>{{book.title}}</a>
-	    	<a class='author'>{{book.author}}</a>
-    	</div>
+        <div class='book-info'>
+            <a class='cover-container' href="{% url 'books:detail' book.id %}">
+                <img class='cover' src='{{ book.pic_url }}'>
+            </a>
+            <a class='title'>{{ book.title }}</a>
+            <a class='author'>{{ book.author }}</a>
+        </div>
     {% endfor %}
 </div>
 

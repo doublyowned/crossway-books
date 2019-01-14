@@ -1,17 +1,17 @@
 div.books-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
 }
 
 div.book-info {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-div.book-full-detail {
+div.full-detail {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 3vw;
@@ -38,30 +38,41 @@ div.book-full-detail {
 
 
     a.cover-container {
-    	width: 100%;
-    	height: 18rem;
+        width: 100%;
+        height: 18rem;
     }
 
 a {
-	color: #72abbf
+    color: #72abbf;
+}
+
+a.author-link {
+    text-decoration: none;
+    color: #514d47;
 }
 
 body {
-	font-family: "Gotham A","Gotham B","GentiumPlus","ezra_silregular",Helvetica,Arial,sans-serif;
-	letter-spacing: 0.2rem;
-	font-size: .8rem;
-	line-height: 1.2rem;
-	word-spacing: 0.2rem;
+    font-family: "Gotham A","Gotham B","GentiumPlus","ezra_silregular",Helvetica,Arial,sans-serif;
+    letter-spacing: 0.2rem;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    word-spacing: 0.2rem;
+    color: #514d47;
 }
 
 a.author {
-	font-style: italic;
+    font-style: italic;
 }
 
 a.title {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 img.cover {
-	width: 150px;
+    width: 150px;
+}
+
+img.author {
+    float: left;
+    margin: 6px;
 }
