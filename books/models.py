@@ -23,17 +23,23 @@ class Author(models.Model):
 class Book(models.Model):
     CATEGORY_CHOICES = (
         (None, 'Other'),
-        ('Evangelism & Missions', 'Evangelism & Missions'),
-        ('Commentaries & Reference', 'Commentaries & Reference'),
-        ('Church Ministry', 'Church Ministry'),
-        ('Arts & Literature', 'Arts & Literature'),
         ('Academic', 'Academic'),
-        ('Theology', 'Theology'),
-        ('Christian Living', 'Christian Living'),
         ('Apologetics', 'Apologetics'),
+        ('Arts & Literature', 'Arts & Literature'),
         ('Bible Studies & Devotionals', 'Bible Studies & Devotionals'),
         ('Biblical Studies', 'Biblical Studies'),
-        ('Education', 'Education')
+        ('Children & Youth', 'Children & Youth'),
+        ('Christian Living', 'Christian Living'),
+        ('Church Ministry', 'Church Ministry'),
+        ('Commentaries & Reference', 'Commentaries & Reference'),
+        ('Culture & Social Issues', 'Culture & Social Issues'),
+        ('Education', 'Education'),
+        ('Evangelism & Missions', 'Evangelism & Missions'),
+        ('Fiction', 'Fiction'),
+        ('History & Biography', 'History & Biography'),
+        ('Marriage & Family', 'Marriage & Family'),
+        ('Theology', 'Theology'),
+        ('Women', 'Women'),
     )
 
     title = models.CharField(max_length=100, unique=True)

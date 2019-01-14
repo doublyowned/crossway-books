@@ -19,7 +19,7 @@ class AuthorSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         books_data = validated_data.pop('books')
 
-        author = Author.object.get(name=validated_data['name'])
+        author = Author.objects.create(**validated_data)
 
         for book_info in books_data:
             Book.objects.create(author=author, **book_info)
