@@ -32,6 +32,10 @@ class BookDetail(generic.DetailView):
     model = Book
     template_name = 'books/detail.html'
 
+class AuthorDetail(generic.DetailView):
+    model = Author
+    template_name = 'books/author_detail.html'
+
 @api_view(['GET', 'POST'])
 def api_list(request, format=None):
     # list all books with GET... 
@@ -72,7 +76,11 @@ def author_api_list(request, format=None):
 
     # ...or create author with POST
     elif request.method ==   'POST':
-        serializer = AuthorSerializer(data=request.data)
+        try:
+            author = Author.objects.get(name__exact=request.data['name'])
+            serializer = AuthorSerializer(data=request.data, instance=author)
+        except Author.DoesNotExist:
+            serializer = AuthorSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -83,7 +91,7 @@ def author_api_list(request, format=None):
 
 @api_view(['GET'])
 def author_api_detail(request, name, format=None):
-    print 'NAME!!', name
+    #update if author exists, else create new author
     try:
         author = Author.objects.get(name__exact=name)
     except Author.DoesNotExist:

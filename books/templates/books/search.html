@@ -1,0 +1,20 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Apply Filter</button>
+</form>
+<div class='books-container'>
+    {% for book in filter.qs %}
+		<div class='book-info'>
+			<a class='cover-container' href="{% url 'books:detail' book.id %}">
+				<img class='cover' src={{book.pic_url}}>
+			</a>
+			<a class='title'>{{book.title}}</a>
+	    	<a class='author'>{{book.author}}</a>
+    	</div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

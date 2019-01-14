@@ -9,12 +9,15 @@ import django_filters
 
 @python_2_unicode_compatible
 class Author(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     pic_url = models.CharField(max_length=200)
     blurb = models.TextField()
 
     def __str__(self):
         return self.name
+
+    def __unicode__(self):
+        return u'%s' % (self.name)
 
 @python_2_unicode_compatible
 class Book(models.Model):
@@ -33,20 +36,23 @@ class Book(models.Model):
         ('Education', 'Education')
     )
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default=None)
     medium = models.CharField(max_length=50, blank=True, default='')
     page_count = models.IntegerField(null=True)
     ISBN_10 = models.CharField(max_length=13, blank=True, default='')
     pic_url = models.CharField(max_length=200, blank=True, default='')
     blurb = models.TextField()
-    author = models.ForeignKey(Author, related_name='books', on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, related_name='books', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return self.title + ' by ' + str(self.author)
+        text = self.title
+        if self.author:
+            text += ' by ' + self.author.name
+        return text
 
     def __unicode__(self):
-        return '%s' % (self.title)
+        return u'%s' % (self.title)
 
 class BookFilter(django_filters.FilterSet):
     class Meta:

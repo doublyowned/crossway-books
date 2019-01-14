@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^detail/(?P<pk>\d+)/$', views.BookDetail.as_view(), name='detail'),
     url(r'^api/$', views.api_list),
     url(r'^api/(\d+)/$', views.api_detail),
+    url(r'^authors/(?P<pk>\d+)/$', views.AuthorDetail.as_view(), name='author_detail'),
     url(r'^authors/api/$', views.author_api_list),
     url(r'^authors/api/(\w+)/$', views.author_api_detail),
 

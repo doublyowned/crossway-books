@@ -1,0 +1,17 @@
+<html>
+{% block head %}
+    {% load static %}
+    <head>
+        <link rel='stylesheet' type='text/css' href="{% static 'books/books.css' %}"/>
+    </head>
+
+{% endblock head %}
+
+    <body>
+
+        <h1>Crossway Books</h1>
+        {% block content %}
+
+        {% endblock content %}
+    </body>
+</html>

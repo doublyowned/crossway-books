@@ -1,0 +1,18 @@
+{% extends 'books/base.html' %}
+
+{% block content %}
+<div class='book-full-detail'>
+    <div class='cover-container'>
+        <img class='detail cover' src={{book.pic_url}}>
+    </div>
+    <div class='text-info'>
+        <h2>{{book.title}}</h2>
+        <p>by
+            <a href="{% url 'books:author_detail' book.author.id %}">{{book.author.name}}</a>
+        </p>
+        <p>{{book.blurb}}</p>
+    </div>
+</div>
+{% endblock content %}
+
+{{ book }}
